@@ -1,0 +1,26 @@
+
+{{template "head"}}
+<title>actualizacion de usuario</title>
+<h1>actualizar usuario/h1>
+<hr>
+<form method="post" action="/update?id={{.Id}}">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">NOMBRE</label>
+        <input type="text" class="form-control" name="nombre" placeholder="Tomas Cerutti" value="{{.Nombre}}" required> 
+    </div>
+
+    <div class="mb-3">
+      <label for="correo" class="form-label">CORREO</label>
+      <input type="email" class="form-control" name="correo" placeholder="nombre@mail.com" value="{{.Correo}}"required> 
+    </div>
+
+    <div class="mb-3">
+      <label for="pass1" class="form-label">CONTRASEÑA</label>
+      <input type="password" class="form-control" id="pass1" required>
+    </div>
+
+    <button type="submit" class="btn btn-success">modificar usuario</button>
+  </form>
+
+
+{{template "footer"}}
