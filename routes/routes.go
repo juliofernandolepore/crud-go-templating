@@ -4,10 +4,10 @@ import (
 	"net/http"
 
 	"github.com/gorilla/mux"
-	"gitlab.com/juliofernandolepore/crud-go-templating/controllers"
+	"github.com/juliofernandolepore/crud-go-templating/controllers"
 )
 
-func MuxRoutes() *mux.Router {
+func Routes() *mux.Router {
 
 	r := mux.NewRouter() //inicializacion del objeto router (instancia con metodos)
 
