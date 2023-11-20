@@ -12,7 +12,7 @@ import (
 func Conn() *sql.DB {
 	DBConn, err := sql.Open("mysql", os.Getenv("DB_CONECTION"))
 	if err != nil {
-		log.Panic("No se pudo conectar a DB.")
+		log.Fatalln("No se pudo conectar a DB.")
 	}
 	return DBConn //objeto DB puntero *sql.DB
 }

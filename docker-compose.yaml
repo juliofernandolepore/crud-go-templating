@@ -1,0 +1,32 @@
+version: "3.9"
+
+services:
+  #-------------------------- first container---------------------------------------------
+  go-container:
+    # here construct image from dockerfile with . (path in build)
+    build: . 
+    ports: 
+    # ports ext of container && port from app
+      - "3000:3000"
+    links:
+    # links both containers
+      - mysql-db-container
+  #-----------------------------------------end of container -----------------------------------
+  #------------------second container----------------------------
+  mysql-db-container:
+  # mysql docker image && config
+    image: mysql
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: basededatos1
+      #-----------password same .env password-----------------
+      MYSQL_ROOT_PASSWORD: PassWord123.
+    volumes:
+      - db-info:/var/lib/mysql
+      #------------internal path volume container-------------------------------
+#-----------------Define volumes for all apps or containers----------------------------
+volumes:
+  db-info: 
+
+  

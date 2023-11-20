@@ -53,7 +53,7 @@ func Updateuser(w http.ResponseWriter, r *http.Request) {
 		correo := r.FormValue("correo")
 		password := r.FormValue("pass1")
 
-		models.Updateuser(id, nombre, correo, password) //argumentos del modelo update
+		models.Updateuser(id, nombre, correo, password)
 		http.Redirect(w, r, "/users/", http.StatusFound)
 	}
 
