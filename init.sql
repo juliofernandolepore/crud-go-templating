@@ -1,5 +1,3 @@
-CREATE DATABASE basededatos1;
-
 use basededatos1;
 
 CREATE TABLE usuario (
@@ -17,4 +15,5 @@ SHOW COLUMNS FROM usuario;
 
 SELECT * FROM usuario;
 
-INSERT INTO usuario(nombre, correo, password, activo) VALUES("javier lopez", "javiervito@gmail.com", "passworddebil", 1);
+INSERT INTO usuario(nombre, correo, password, activo) 
+    VALUES("javier lopez", "javiervito@gmail.com", "passworddebil", 1);

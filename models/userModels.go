@@ -11,7 +11,7 @@ func Readusers() []Usuario {
 
 	consulta, err := conexion.Query("SELECT id, nombre, correo FROM usuario WHERE activo = 1")
 	if err != nil {
-		panic("error al leer usuarios")
+		log.Fatalln("error al leer usuarios, verificar que la table exista")
 	}
 
 	conexion.Close()
