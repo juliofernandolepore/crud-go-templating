@@ -4,7 +4,6 @@ services:
   #---------------container--------------
   servicio-mysql-db:
     image: mysql:8.2.0
-    restart: always
     container_name: contenedor-mysql
     ports:
       - "3306:3306"

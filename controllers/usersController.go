@@ -21,7 +21,7 @@ func Readusers(w http.ResponseWriter, r *http.Request) {
 }
 
 func Createuser(w http.ResponseWriter, r *http.Request) {
-	if r.Method == http.MethodPost { //si el metodo es POST, SE GUARDAR LOS VALORES DEL FORM EN LAS VARIABLES RESPECTIVAS
+	if r.Method == http.MethodPost {
 		nombre := r.FormValue("nombre")
 		correo := r.FormValue("correo")
 		password := r.FormValue("pass1")

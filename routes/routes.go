@@ -8,7 +8,6 @@ import (
 )
 
 func Routes() *mux.Router {
-	//inicializacion del objeto router (instancia con metodos)
 	r := mux.NewRouter()
 
 	r.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {

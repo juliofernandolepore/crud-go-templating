@@ -8,7 +8,9 @@ $ go get -u github.com/go-sql-driver/mysql
 ```
 third lib 
 
+```
 go get github.com/joho/godotenv
+```
 
 i use .env but not include in gitignore for learning purpose
 
@@ -30,4 +32,5 @@ go run main.go
 
 ``````
 http://localhost:3000/users/
+
 ```
