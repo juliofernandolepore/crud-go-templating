@@ -1,32 +1,26 @@
 version: "3.9"
 
 services:
-  #-------------------------- first container---------------------------------------------
-  go-container:
-    # here construct image from dockerfile with . (path in build)
-    build: . 
-    ports: 
-    # ports ext of container && port from app
-      - "3000:3000"
-    links:
-    # links both containers
-      - mysql-db-container
-  #-----------------------------------------end of container -----------------------------------
-  #------------------second container----------------------------
-  mysql-db-container:
-  # mysql docker image && config
-    image: mysql
+  #---------------container--------------
+  servicio-mysql-db:
+    image: mysql:8.2.0
+    restart: always
+    container_name: contenedor-mysql
     ports:
       - "3306:3306"
     environment:
       MYSQL_DATABASE: basededatos1
-      #-----------password same .env password-----------------
       MYSQL_ROOT_PASSWORD: PassWord123.
-    volumes:
-      - db-info:/var/lib/mysql
-      #------------internal path volume container-------------------------------
-#-----------------Define volumes for all apps or containers----------------------------
-volumes:
-  db-info: 
+
+  servicio-postgresql:
+    image: postgres:16.1
+    restart: always
+    container_name: contenedor-postgresql
+    ports:
+      - "5432:5432"  
+    environment:
+      POSTGRES_PASSWORD: PassWord123.
+      POSTGRES_USER: postgres  
+      POSTGRES_DB: basededatos1
 
   

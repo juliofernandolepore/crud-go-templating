@@ -25,7 +25,7 @@ func Createuser(w http.ResponseWriter, r *http.Request) {
 		nombre := r.FormValue("nombre")
 		correo := r.FormValue("correo")
 		password := r.FormValue("pass1")
-		models.Createuser(nombre, correo, password) //metodo que escribe en la base de datos
+		models.Createuser(nombre, correo, password)
 		http.Redirect(w, r, "/users/", http.StatusFound)
 	}
 
@@ -38,7 +38,6 @@ func Createuser(w http.ResponseWriter, r *http.Request) {
 	vista.Execute(w, nil)
 }
 
-// controlador sin vista - pura logica de negocio
 func Deleteuser(w http.ResponseWriter, r *http.Request) {
 	id := r.URL.Query().Get("id")
 	models.Deleuser(id)

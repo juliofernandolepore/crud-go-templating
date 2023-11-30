@@ -1,7 +1,7 @@
 package configuracion
 
 import (
-	"database/sql" //libreria estandar de sql
+	"database/sql"
 	"log"
 	"os"
 
@@ -14,5 +14,5 @@ func Conn() *sql.DB {
 	if err != nil {
 		log.Fatalln("No se pudo conectar a DB.")
 	}
-	return DBConn //objeto DB puntero *sql.DB
+	return DBConn
 }

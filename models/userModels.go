@@ -6,7 +6,7 @@ import (
 	configuracion "github.com/juliofernandolepore/crud-go-templating/config"
 )
 
-func Readusers() []Usuario { // regresa un slice de tipo usuario
+func Readusers() []Usuario {
 	conexion := configuracion.Conn()
 
 	consulta, err := conexion.Query("SELECT id, nombre, correo FROM usuario WHERE activo = 1")
@@ -26,14 +26,14 @@ func Readusers() []Usuario { // regresa un slice de tipo usuario
 	return arregloUsuarios
 }
 
-func Readuser(id string) Usuario { // regresa un slice de tipo usuario
+func Readuser(id string) Usuario {
 	conexion := configuracion.Conn()
 
 	consulta := conexion.QueryRow("SELECT id, nombre, correo, password FROM usuario WHERE activo = 1 AND id = ?", id)
 
 	conexion.Close()
 
-	var usuario Usuario //variable interna que sera el retorno de la funcion
+	var usuario Usuario
 
 	consulta.Scan(&usuario.Id, &usuario.Nombre, &usuario.Correo, &usuario.Password)
 
@@ -59,13 +59,13 @@ func Createuser(nombre, correo, password string) {
 }
 
 func Deleuser(id string) {
-	conexion := configuracion.Conn()                                                //conexion a la base de datos
-	consulta, err := conexion.Prepare("UPDATE usuario SET activo = ? WHERE ID = ?") //query preparada
+	conexion := configuracion.Conn()
+	consulta, err := conexion.Prepare("UPDATE usuario SET activo = ? WHERE ID = ?")
 	if err != nil {
 		panic("no se pudo preparar la consulta")
 	}
 
-	consulta.Exec(0, id) //id argumento al definirse la funcion
+	consulta.Exec(0, id)
 	conexion.Close()
 
 }
@@ -84,7 +84,7 @@ func Updateuser(id, nombre, correo, password string) {
 		panic("error al cifrar la contraseña")
 	}
 
-	consulta.Exec(nombre, correo, passwordSeguro, id) //id argumento al definirse la funcion
+	consulta.Exec(nombre, correo, passwordSeguro, id)
 	conexionDB.Close()
 
 }

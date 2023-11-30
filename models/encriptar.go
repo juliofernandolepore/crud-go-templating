@@ -6,7 +6,6 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// funcion para encriptar password
 func EncriptarPassword(password string) (string, error) {
 
 	bytes, err := bcrypt.GenerateFromPassword([]byte(password), 14)
@@ -16,7 +15,6 @@ func EncriptarPassword(password string) (string, error) {
 	return string(bytes), err
 }
 
-// funcion para controlar password
 func VerificarHah(password, hash string) bool {
 
 	err := bcrypt.CompareHashAndPassword([]byte(hash), []byte(password))
